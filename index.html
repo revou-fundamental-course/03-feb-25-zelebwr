@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
+    <script src="js/main.js"></script>
     <title>Temperature Converter</title>
   </head>
   <body>
@@ -20,79 +21,98 @@
 
     <!-- Here is the main content shall be, where all of the actions are gonna be executed -->
     <main>
-      <!-- This will be the input space from the user -->
-      <div class="big_box">
-        <p class="legend_text">Insert your temperature initial values here!</p>
-        <fieldset class="legend_box">
-          <legend>Input</legend>
-          <p>
-            <label for="temp_value">Temperature Value:</label>
-            <input type="number" id="temp_value" name="temp_value" />
-            <select name="temp_scale" id="">
-              <option value="temp_scale_1">&deg;C (Celsius)</option>
-              <option value="temp_scale_2">&deg;F (Fahrenheit)</option>
-              <option value="temp_scale_3">K (Kelvin)</option>
-              <option value="temp_scale_4">&deg;R (Rankine)</option>
-              <option value="temp_scale_5">
-                &deg;R&oslash; (R&oslash;mer)
-              </option>
-              <option value="temp_scale_6">N (Newton)</option>
-              <option value="temp_scale_7">&deg;De (Delisle)</option>
-              <option value="temp_scale_8">
-                &deg;R&eacute; (R&eacute;aumur)
-              </option>
-              <option value="temp_scale_9">Gas mark</option>
-              <option value="temp_scale_10">&deg;L (Leiden)</option>
-              <option value="temp_scale_11">&deg;W (Wedgwood)</option>
-            </select>
+      <div class="container">
+        <!-- This will be the input space from the user -->
+        <div class="big_box">
+          <p class="legend_text">
+            Insert your temperature initial values here!
           </p>
-        </fieldset>
-      </div>
+          <fieldset class="legend_box">
+            <legend>Input</legend>
+            <form>
+              <label for="temp_value">Temperature Value:</label>
+              <input
+                class="minimal_input"
+                type="number"
+                id="temp_value"
+                name="temp_value"
+              />
+              <select class="minimal_select" name="temp_scale" id="temp_from">
+                <option value="temp_scale_1">&deg;C (Celsius)</option>
+                <option value="temp_scale_2">&deg;F (Fahrenheit)</option>
+                <option value="temp_scale_3">K (Kelvin)</option>
+                <option value="temp_scale_4">&deg;R (Rankine)</option>
+                <option value="temp_scale_5">
+                  &deg;R&oslash; (R&oslash;mer)
+                </option>
+                <option value="temp_scale_6">N (Newton)</option>
+                <option value="temp_scale_7">&deg;De (Delisle)</option>
+                <option value="temp_scale_8">
+                  &deg;R&eacute; (R&eacute;aumur)
+                </option>
+                <option value="temp_scale_9">Gas mark</option>
+                <option value="temp_scale_10">&deg;L (Leiden)</option>
+                <option value="temp_scale_11">&deg;W (Wedgwood)</option>
+              </select>
+            </form>
+          </fieldset>
+        </div>
 
-      <!-- This will be the output space for the user -->
-      <div class="big_box">
-        <p class="legend_text">The calculations will be shown down here!</p>
-        <fieldset class="legend_box">
-          <legend>Output</legend>
-          <p>
-            <label for="">Temperature Value:</label><input type="text" />
-            <select name="" id="">
-              <option value="temp_scale_12">&deg;C (Celsius)</option>
-              <option value="temp_scale_2">&deg;F (Fahrenheit)</option>
-              <option value="temp_scale_3">K (Kelvin)</option>
-              <option value="temp_scale_4">&deg;R (Rankine)</option>
-              <option value="temp_scale_5">
-                &deg;R&oslash; (R&oslash;mer)
-              </option>
-              <option value="temp_scale_6">N (Newton)</option>
-              <option value="temp_scale_7">&deg;De (Delisle)</option>
-              <option value="temp_scale_8">
-                &deg;R&eacute; (R&eacute;aumur)
-              </option>
-              <option value="temp_scale_9">Gas mark</option>
-              <option value="temp_scale_10">&deg;L (Leiden)</option>
-              <option value="temp_scale_11">&deg;W (Wedgwood)</option>
-            </select>
-          </p>
-        </fieldset>
+        <!-- This will be the output space for the user -->
+        <div class="big_box">
+          <p class="legend_text">The calculations will be shown down here!</p>
+          <fieldset class="legend_box">
+            <legend>Output</legend>
+            <form>
+              <label for="">Temperature Value:</label>
+              <input class="minimal_input" type="number" />
+              <select class="minimal_select" name="temp_scale" id="temp_to">
+                <option value="temp_scale_12">&deg;C (Celsius)</option>
+                <option value="temp_scale_2">&deg;F (Fahrenheit)</option>
+                <option value="temp_scale_3">K (Kelvin)</option>
+                <option value="temp_scale_4">&deg;R (Rankine)</option>
+                <option value="temp_scale_5">
+                  &deg;R&oslash; (R&oslash;mer)
+                </option>
+                <option value="temp_scale_6">N (Newton)</option>
+                <option value="temp_scale_7">&deg;De (Delisle)</option>
+                <option value="temp_scale_8">
+                  &deg;R&eacute; (R&eacute;aumur)
+                </option>
+                <option value="temp_scale_9">Gas mark</option>
+                <option value="temp_scale_10">&deg;L (Leiden)</option>
+                <option value="temp_scale_11">&deg;W (Wedgwood)</option>
+              </select>
+            </form>
+          </fieldset>
+        </div>
       </div>
 
       <!-- This will be the submit button for the user -->
-      <div>
-        <p>Press the button to convert the temperature!</p>
-        <button>Convert</button>
-        <button>Reset</button>
-        <button>Reverse</button>
-      </div>
-      
-      <hr />
-
-      <!-- This will be where the calculation method is shown -->
-      <h2>Here is how we do it!</h2>
-      <div>
-        <p></p>
+      <div class="button_space">
+        <p class="button_space_text">
+          Press the button to convert the temperature!
+        </p>
+        <div class="button_container">
+          <button>Convert</button>
+          <button>Reset</button>
+          <button>Reverse</button>
+        </div>
       </div>
     </main>
+
+    <!-- This will be where the calculation method is shown -->
+    <article>
+      <h2>Here is how we do it!</h2>
+      <div>
+        <p>
+          The formula for converting temperature from one scale to another is
+          quite simple. You just need to know the conversion factor between the
+          two scales. Here are the formulas for converting between the most
+          common temperature scales:
+        </p>
+      </div>
+    </article>
 
     <!-- This is the footer for the website's information -->
     <footer>
